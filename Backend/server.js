@@ -19,7 +19,7 @@ app.post("/api/usuarios", (req, res) => {
   const valorAcepta = acepta ? 1 : 0; // true → 1, false → 0
 
   db.query("INSERT INTO usuarios (nombres, documento, correo, contrasena, ciudad, direccion, acepta) VALUES(?, ?, ?, ?, ?, ?, ?)",
-    [nombres, documento, correo, contrasena, ciudad, direccion], (err, resusltado) => {
+    [nombres, documento, correo, contrasena, ciudad, direccion, acepta], (err, resusltado) => {
       if (err) {
         console.error("Error en INSERT:", err);
         return res.status(500).json({ error: "Error al insertar los datos en la tabla usuarios" });

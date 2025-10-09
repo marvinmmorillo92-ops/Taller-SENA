@@ -31,8 +31,7 @@ const correo = document.getElementById("inputEmail4").value.trim();
 const contrasena = document.getElementById("inputPassword4").value;
 const ciudad = document.getElementById("inputCiudad").value.trim();
 const direccion = document.getElementById("inputDireccion").value.trim();
-const acepta = document.getElementById("gridCheck")
-?document.getElementById("gridCheck").checked:true;
+const acepta = document.getElementById("gridCheck")?.checked ? 1 : 0; // Nuevo campo acepta
 
 // Validar que todos los campos obligatorios estén llenos
 
