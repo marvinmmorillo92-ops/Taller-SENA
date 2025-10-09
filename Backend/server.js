@@ -10,20 +10,22 @@ app.use(cors());
 // ================= tabla usuarios ================== //
 // Crear usuario
 app.post("/api/usuarios", (req, res) => {
-  const { nombres, documento, correo, contrasena, ciudad, direccion } = req.body;
+  const { nombres, documento, correo, contrasena, ciudad, direccion, acepta } = req.body;
 
   if (!nombres || !documento || !correo || !contrasena || !ciudad || !direccion) {
     return res.status(400).json({ error: "Todos los campos son obligatorios" });
   }
 
-  db.query("INSERT INTO usuarios (nombres, documento, correo, contrasena, ciudad, direccion) VALUES(?, ?, ?, ?, ?, ?)",
-    [nombres, documento, correo, contrasena, ciudad, direccion], (err, resultado) => {
+  const valorAcepta = acepta ? 1 : 0; // true → 1, false → 0
+
+  db.query("INSERT INTO usuarios (nombres, documento, correo, contrasena, ciudad, direccion, acepta) VALUES(?, ?, ?, ?, ?, ?, ?)",
+    [nombres, documento, correo, contrasena, ciudad, direccion], (err, resusltado) => {
       if (err) {
         console.error("Error en INSERT:", err);
         return res.status(500).json({ error: "Error al insertar los datos en la tabla usuarios" });
       }
 
-      res.json({id_usuario: resultado.insertId, nombres, documento, correo, contrasena, ciudad, direccion});
+      res.json({id_usuario: resultado.insertId, nombres, documento, correo, contrasena, ciudad, direccion, acepta: valorAcepta});
     }
   );
 });

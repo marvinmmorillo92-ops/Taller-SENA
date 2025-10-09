@@ -30,9 +30,9 @@ const documento = document.getElementById("inputDocumentoID").value.trim();
 const correo = document.getElementById("inputEmail4").value.trim();
 const contrasena = document.getElementById("inputPassword4").value;
 const ciudad = document.getElementById("inputCiudad").value.trim();
-const direccion = document.getElementById("inputDireccion").value.trim()
-?document.getElementById("gridCheck").checked
-:true;
+const direccion = document.getElementById("inputDireccion").value.trim();
+const acepta = document.getElementById("gridCheck")
+?document.getElementById("gridCheck").checked:true;
 
 // Validar que todos los campos obligatorios estén llenos
 
@@ -43,7 +43,7 @@ return showAlert("Por favor, complete todos los campos obligatorios.", "warning"
 const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if (!emailregex.test(correo)) return showAlert("Por favor, ingrese un correo electrónico válido.", "warning");
 if (contrasena.length < 6) return showAlert("La contraseña debe tener al menos 6 caracteres.", "warning");
-
+if (!acepta) return showAlert("Debe aceptar los términos y condiciones.", "warning");
 
 const submitBtn = form.querySelector("button[type='submit']");
 const originaltext = submitBtn ? submitBtn.textContent : null;
@@ -56,7 +56,7 @@ try {
     const resp = await fetch(API_URL, {
         method: "POST", 
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({nombres, documento, correo, contrasena, ciudad, direccion}),
+        body: JSON.stringify({nombres, documento, correo, contrasena, ciudad, direccion, acepta}),
     });
 
     const json = await resp.json();
@@ -69,7 +69,7 @@ try {
         form.reset();
 
         //Redirigir al perfil del usuario
-       // window.location.href = "./perfil.html";
+       window.location.href = "./perfil.html";
 
       }
 }
