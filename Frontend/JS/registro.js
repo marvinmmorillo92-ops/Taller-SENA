@@ -43,7 +43,7 @@ return showAlert("Por favor, complete todos los campos obligatorios.", "warning"
 const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if (!emailregex.test(correo)) return showAlert("Por favor, ingrese un correo electrónico válido.", "warning");
 if (contrasena.length < 6) return showAlert("La contraseña debe tener al menos 6 caracteres.", "warning");
-if (!acepta) return showAlert("Debe aceptar los términos y condiciones.", "warning");
+
 
 const submitBtn = form.querySelector("button[type='submit']");
 const originaltext = submitBtn ? submitBtn.textContent : null;
