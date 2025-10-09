@@ -30,13 +30,17 @@ const documento = document.getElementById("inputDocumentoID").value.trim();
 const correo = document.getElementById("inputEmail4").value.trim();
 const contrasena = document.getElementById("inputPassword4").value;
 const ciudad = document.getElementById("inputCiudad").value.trim();
+const direccion = document.getElementById("inputDireccion").value.trim();
 const acepta = document.getElementById("gridCheck")
 ?document.getElementById("gridCheck").checked
 :true;
 
 // Validar que todos los campos obligatorios estén llenos
 
+if (!nombre || !documento || !correo || !contrasena || !ciudad) {
 
+
+}
 
 });
 
