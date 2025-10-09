@@ -51,6 +51,8 @@ if (submitBtn) {
     submitBtn.textContent = "Registrando...";
 }
 
+console.log("Valor de acepta antes de enviar:", acepta);
+
 try {
     const resp = await fetch(API_URL, {
         method: "POST", 
