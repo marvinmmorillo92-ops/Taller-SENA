@@ -53,7 +53,36 @@ if (submitBtn) {
     submitBtn.textContent = "Registrando...";
 }
 
+try {
+    const resp = await fetch(API_URL, {
+        method: "POST", 
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({nombre, documento, correo, contrasena, ciudad, direccion, acepta}),
+    });
 
+    const json = await resp.json().catch(() => ({}));
+    if (!resp.ok) {
+        const msg = json.error || json.message || "Error en el registro";
+        showAlert(msg, "danger");
+      } else {
+        showAlert("Registro exitoso. Bienvenido/a " + (json.nombres || "") + "!", "success");
+        form.reset();
+
+        //Redirigir al perfil del usuario
+        window.location.href = "./perfil.html";
+
+      }
+}
+catch (error) {
+    console.error("Error en la solicitud:", error);
+    showAlert("Error en la solicitud. Por favor, intente nuevamente más tarde.", "danger");
+}
+finally {
+    if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originaltext;
+    }
+}
 
 
 });
