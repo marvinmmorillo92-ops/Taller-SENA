@@ -1,0 +1,202 @@
+/* Botón personalizado */
+.btn-custom {
+  background-color: rgba(247, 92, 92, 0.685);  /* rosado pastel */
+  border: none;
+  color: #222;
+  width: 30%; /* ocupa la mitad del contenedor */
+   backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #c63c63; /* más oscuro al pasar el mouse */
+  color: #fff; /* al hacer hover se vuelve texto blanco */
+}
+
+.btn-ingresarP {
+  margin-top: 10px;   /* se despega un poco hacia abajo */
+  background-color: rgba(247, 92, 92, 0.685);  /* rosado pastel */
+  border: none;
+  color: #222;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+.btn-ingresarP:hover {
+  background-color: #c63c63; /* más oscuro al pasar el mouse */
+   color: #fff; /* al hacer hover se vuelve texto blanco */
+}
+
+.btn-registro {
+  margin-top: 10px;   /* se despega un poco hacia abajo */
+  background-color: rgba(247, 92, 92, 0.685);  
+  border: none;
+  color: #222; /* gris muy oscuro (puede ser #000 si quieres negro) */
+  width: 30%; /* ocupa la mitad del contenedor */
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+
+.btn-registro:hover {
+  background-color: #c63c63; /* más oscuro al pasar el mouse */
+  color: #fff; /* al hacer hover se vuelve texto blanco */
+}
+
+.btn-filtrar {
+  margin-top: 10px;   /* se despega un poco hacia abajo */
+  background-color: rgba(247, 92, 92, 0.685);  
+  border: none;
+  color: #222;
+  width: 50%;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease;
+}
+.btn-filtrar:hover {
+  background-color: #c63c63; /* más oscuro al pasar el mouse */
+  color: #fff; /* al hacer hover se vuelve texto blanco */
+}
+
+.form-rosa {
+  background-color: #D8A7B1; /* palo de rosa */
+  border-radius: 12px;       /* bordes redondeados */
+  color: white;              /* texto blanco */
+}
+
+/* Fondo general */
+body {
+  background-color: #F4C2C2; /* Palo de rosa claro */
+  color: #333333; /* Texto oscuro para contraste */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #d28a8a !important; /* Rosado más oscuro */
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: #fff !important; /* Letras blancas */
+}
+
+.navbar .nav-link:hover {
+  color: #ffeaea !important; /* Un rosado más claro al pasar el mouse */
+}
+
+.btn-outline-success {
+  border-color: #e75480;   /* Rosa fuerte en lugar de verde */
+  color: #e75480;
+}
+
+.btn-outline-success:hover {
+  background-color: #e75480;
+  color: #fff;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.20); /* Blanco 70% opaco */
+  border: none; /* Opcional: quitar borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: sombra suave */
+} 
+
+.offcanvas {
+  background-color: rgba(0, 0, 0, 0.6); /* negro traslúcido */
+  color: #fff; /* texto blanco para contraste */
+  backdrop-filter: blur(6px);
+}
+.offcanvas-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+  gap: 12px;
+}
+
+
+.btn-ingresar {
+  margin-top: 10px;
+  background-color: rgba(255, 182, 193, 0.7); /* rosado pastel traslúcido */
+  color: #4a2c2a; /* letras más oscuras para contraste */
+  border: none;
+  border-radius: 12px; /* esquinas redondeadas */
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-ingresar:hover {
+  background-color: rgba(255, 105, 135, 0.9); /* más fuerte al pasar */
+  transform: scale(1.05); /* efecto zoom sutil */
+}
+
+.formulario {
+  background-color: rgba(255, 182, 193, 0.3); /* Rosa palo translúcido */
+  backdrop-filter: blur(10px); /* efecto vidrio */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* borde suave translúcido */
+  
+}
+
+.formulario-login {
+  background-color: rgba(255, 182, 193, 0.3); /* Rosa palo translúcido */
+  backdrop-filter: blur(10px); /* efecto vidrio */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* borde translúcido */
+}
+
+.formulario-opinion {
+  background-color: rgba(255, 182, 193, 0.3); /* Rosa palo translúcido */
+  backdrop-filter: blur(10px); /* efecto vidrio */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* borde translúcido */
+}
+
+.carousel-item img {
+  height: 350px; /* más alto */
+  object-fit: cover; /* mantiene proporción sin deformar */
+  border-radius: 10px;
+}
+
+.table thead {
+  background-color: #d9a3a3; /* color rosado claro */
+}
+
+.btn-pagar {
+  background-color: #b34a5c;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-pagar:hover {
+  background-color: #8c5c5c;
+}
+
+.bg-carrito {
+  background: rgba(255, 255, 255, 0.5); /* cuadro principal traslúcido */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Hacer traslúcido el encabezado de la tabla */
+/* Encabezado tabla traslúcido */
+.encabezado-tabla th {
+  background-color: rgba(207, 74, 96, 0.6) !important; /* rosa oscuro translúcido */
+  color: #fff !important; /* texto blanco */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+
+/* Celdas con fondo claro semitransparente */
+.table tbody tr td {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Total destacado pero traslúcido */
+.table tbody tr:last-child td {
+  background: rgba(230, 230, 230, 0.4);
+  font-weight: bold;
+}
+
+
+
+
