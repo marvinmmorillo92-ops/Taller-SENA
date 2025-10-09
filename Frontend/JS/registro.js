@@ -1,6 +1,6 @@
-document.addEventListener("DomContentLoaded", () =>{
+document.addEventListener("DOMContentLoaded", () => {
 
-const formRegistro = document.getElementById("formRegistro");
+const form = document.getElementById("formRegistro");
 const API_URL = "http://localhost:4000/api/usuarios";
 
 // Función para mostra mensaje de alerta
@@ -20,24 +20,23 @@ function showAlert(message, type = "info") {
     }, 5000);
 }
 
-from.addEventListener("submit", async (e) =>{
+form.addEventListener("submit", async (e) =>{
 e.preventDefault();
 
 
 // Obtener los valores de los campos del formulario
-const nombre = document.getElementById("inputAddress").value.trim();
+const nombres = document.getElementById("inputAddress").value.trim();
 const documento = document.getElementById("inputDocumentoID").value.trim();
 const correo = document.getElementById("inputEmail4").value.trim();
 const contrasena = document.getElementById("inputPassword4").value;
 const ciudad = document.getElementById("inputCiudad").value.trim();
-const direccion = document.getElementById("inputDireccion").value.trim();
-const acepta = document.getElementById("gridCheck")
+const direccion = document.getElementById("inputDireccion").value.trim()
 ?document.getElementById("gridCheck").checked
 :true;
 
 // Validar que todos los campos obligatorios estén llenos
 
-if (!nombre || !documento || !correo || !contrasena || !ciudad || !direccion) {
+if (!nombres || !documento || !correo || !contrasena || !ciudad || !direccion) {
 return showAlert("Por favor, complete todos los campos obligatorios.", "warning");
 }
 
@@ -57,10 +56,11 @@ try {
     const resp = await fetch(API_URL, {
         method: "POST", 
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({nombre, documento, correo, contrasena, ciudad, direccion, acepta}),
+        body: JSON.stringify({nombres, documento, correo, contrasena, ciudad, direccion}),
     });
 
-    const json = await resp.json().catch(() => ({}));
+    const json = await resp.json();
+
     if (!resp.ok) {
         const msg = json.error || json.message || "Error en el registro";
         showAlert(msg, "danger");
@@ -69,7 +69,7 @@ try {
         form.reset();
 
         //Redirigir al perfil del usuario
-        window.location.href = "./perfil.html";
+       // window.location.href = "./perfil.html";
 
       }
 }
