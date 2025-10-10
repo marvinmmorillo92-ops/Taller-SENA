@@ -14,6 +14,7 @@
 
 
 </head>
+
 <body>
     
 <header>  
@@ -69,17 +70,17 @@
 
 <!-- FORMULARIO LOGIN CENTRADO -->
 <main class="container d-flex justify-content-center my-5">
-  <form class="w-100 p-4 shadow rounded formulario-login" style="max-width:400px;">
+  <form id="formLogin" class="w-100 p-4 shadow rounded formulario-login" style="max-width:400px;">
     <h2 class="text-center mb-4">Iniciar Sesión</h2>
 
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Dirección de correo electrónico</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="correo" required>
     </div>
 
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" class="form-control" id="contrasena" required>
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
