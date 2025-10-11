@@ -41,14 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //  Guardar usuario en localStorage
       localStorage.setItem("usuario", JSON.stringify(json.usuario));
-      showAlert("Inicio de sesión exitoso, redirigiendo...", "Exitiso");
+      showAlert("Inicio de sesión exitoso, redirigiendo...", "success");
 
       // Redirigir al perfil del usuario
       setTimeout(() => {
-        window.location.href = "./perfil.html";
-      }, 1500);
-    } catch (error) {
-      console.error("Error en login:", error);
+        window.location.href = "./perfil.html"; }, 1500);
+    } catch (error) {console.error("Error en login:", error);
       showAlert("Error en la conexión con el servidor.");
     }
   });
