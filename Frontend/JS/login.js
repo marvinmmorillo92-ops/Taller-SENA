@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contrasena = document.getElementById("contrasena").value.trim();
 
     if (!correo || !contrasena) {
-      return showAlert("Por favor, complete todos los campos.");
+      return showAlert("Por favor, complete toda la información");
     }
 
     try {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //  Guardar usuario en localStorage
       localStorage.setItem("usuario", JSON.stringify(json.usuario));
-      showAlert("Inicio de sesión exitoso, redirigiendo...", "success");
+      showAlert("Inicio de sesión exitoso, redirigiendo...", "Exitiso");
 
       // Redirigir al perfil del usuario
       setTimeout(() => {
