@@ -13,4 +13,9 @@ document.getElementById("telefonoUsuario").textContent = usuario.telefono || "N/
 document.getElementById("ciudadUsuario").textContent = usuario.ciudad || "N/A";
 document.getElementById("direccionUsuario").textContent = usuario.direccion || "N/A";
 
+// Manejar cierre de sesión
+document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+    localStorage.removeItem("usuario");
+    window.location.href = "./index.html";
+
 });
