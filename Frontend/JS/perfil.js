@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "./login.html"; return; }   // me regresa para hacer el login
 
 // Mostrar datos del usuario en el perfil
-document.getElementById("nombresUsuario").textContent = usuario.nombre || "N/A";
+document.getElementById("nombreUsuario").textContent = usuario.nombre || "N/A";
 document.getElementById("correoUsuario").textContent = usuario.correo || "N/A";
 document.getElementById("telefonoUsuario").textContent = usuario.telefono || "N/A";
 document.getElementById("ciudadUsuario").textContent = usuario.ciudad || "N/A";
