@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
 
     if (!usuario) {alert ("No has iniciado sesión. Redirigiendo al login.");
-    window.location.href = "./perfil.html"; return; }   // me regresa al perfil para hacer el login
+    window.location.href = "./login.html"; return; }   // me regresa para hacer el login
 
 // Mostrar datos del usuario en el perfil
 document.getElementById("nombreUsuario").textContent = usuario.nombre || "N/A";
