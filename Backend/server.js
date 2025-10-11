@@ -457,6 +457,24 @@ app.delete("/api/opiniones/:id", (req, res) => {
   });
 });
 
+
+// ================= Login ================== //
+
+app.post("/api/login", (req, res) => {
+
+const { correo, contrasena } = req.body;
+if (!correo || !contrasena) {
+    return res.status(400).json({ error: "Correo y contraseña son obligatorios" });
+  }
+db.query("SELECT * FROM usuarios WHERE correo = ? ", [correo], (err, resultados) => {
+  if (err) {console.error("Error en SELECT login:", err);
+      return res.status(500).json({ error: "Error en la base de datos" });
+    }
+});
+
+});
+
+
 // Iniciar servidor
 app.listen(4000, () => {
   console.log("El servidor está corriendo en http://localhost:4000");
