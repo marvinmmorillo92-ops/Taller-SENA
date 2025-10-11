@@ -470,6 +470,19 @@ db.query("SELECT * FROM usuarios WHERE correo = ? ", [correo], (err, resultados)
   if (err) {console.error("Error en SELECT login:", err);
       return res.status(500).json({ error: "Error en la base de datos" });
     }
+
+if (resultados.length === 0) {
+      return res.status(404).json({ error: "Usuario no existe" });
+    }
+
+    const usuario = resultados[0];
+    if (usuario.contrasena !== contrasena) {
+      return res.status(401).json({ error: "Contraseña incorrecta" });
+    }
+// Eliminar la contraseña antes de enviar la respuesta
+    delete usuario.contrasena;
+    res.json({ mensaje: "Inicio de sesión exitoso", usuario });
+
 });
 
 });
