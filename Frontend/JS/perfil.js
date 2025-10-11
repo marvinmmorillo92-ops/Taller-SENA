@@ -19,3 +19,4 @@ document.getElementById("btnCerrarSesion").addEventListener("click", () => {
     window.location.href = "./index.html";
 
 });
+});
