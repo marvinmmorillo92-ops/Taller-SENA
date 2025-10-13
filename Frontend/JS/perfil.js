@@ -16,6 +16,20 @@ document.getElementById("direccionUsuario").textContent = usuario.direccion || "
 // Mostrar carrito de compras
 const API_BASE= "http://localhost:4000/api";
 
+// Formatear fecha
+function formatearFecha(fecha) {
+  if (!fecha) return "Sin fecha";
+  const d = new Date(fecha);
+  return d.toLocaleString("es-CO", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+
 // Funcion para llenar tabla carrito
 function llenarTabla(idTabla, datos, columnas) {
   const tbody = document.getElementById(idTabla);
@@ -29,9 +43,10 @@ function llenarTabla(idTabla, datos, columnas) {
   datos.forEach((fila) => {
     const tr = document.createElement("tr");
     tr.innerHTML =
-      columnas === 2
-        ? `<td>${fila.producto}</td><td>${fila.cantidad}</td>`
-        : `<td>${fila.producto}</td><td>${fila.cantidad}</td><td>${fila.fecha || "Sin fecha"}</td>`;
+  columnas === 2
+    ? `<td>${fila.producto}</td><td>${fila.cantidad}</td>`
+    : `<td>${fila.producto}</td><td>${fila.cantidad}</td><td>${formatearFecha(fila.fecha)}</td>`;
+
     tbody.appendChild(tr);
   });
 }
