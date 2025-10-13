@@ -14,8 +14,7 @@ document.getElementById("direccionUsuario").textContent = usuario.direccion || "
 
 
 // Mostrar carrito de compras
-const carrito = JSON.parse(localStorage.getItem("carrito"));
-const carritoContainer = document.getElementById("carritoContainer");
+const API_BASE= "http://localhost:4000/api";
 
 
 
