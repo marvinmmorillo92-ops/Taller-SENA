@@ -197,6 +197,19 @@ body {
   font-weight: bold;
 }
 
+/* Cambia el nombre que muestra en el nav bar */
+#nombreSesion {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+}
+
+#nombreSesion:hover {
+  color: #e63946;
+  transform: scale(1.05);
+}
 
 
 
