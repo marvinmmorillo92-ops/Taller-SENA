@@ -201,7 +201,7 @@ body {
 #nombreSesion {
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
-  color: #333;
+  color: #7e2929;
   text-transform: capitalize;
   transition: all 0.3s ease-in-out;
 }
