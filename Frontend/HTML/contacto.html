@@ -37,17 +37,28 @@
                 <img src="../assets/img/lupa.png" alt="Buscar" width="25" height="25">
               </button>
             </form>
-            <ul class="navbar-nav d-flex flex-row">
-              <li class="nav-item">
-                <a class="nav-link" href="../HTML/login.html"><img src="../assets/img/perfil.png" alt="Perfil" width="58" height="50">
-                </a>
-              <span id="nombreSesion" class="ms-2 fw-bold text-dark"></span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../HTML/carrito.html">
-        <img src="../assets/img/carrito.png" alt="Carrito" width="57" height="53" class="d-inline-block align-text-top">
-      </a></li>
-            </ul>
+            <!-- logo perfil desplegable -->
+      <ul class="navbar-nav d-flex flex-row">
+   <li class="nav-item dropdown d-flex align-items-center ms-3">
+  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="menuUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="../assets/img/perfil.png" alt="Perfil" width="45" height="40" class="d-inline-block align-text-top me-2">
+    <span id="nombreSesion" class="fw-semibold text-dark small">Hola</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="menuUsuario">
+    <li><a class="dropdown-item" href="../HTML/perfil.html">Ver perfil</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item text-danger" href="#" id="cerrarSesionHeader">Cerrar sesión</a></li>
+  </ul>
+</li>
+
+<!-- Carrito -->
+<li class="nav-item">
+  <a class="nav-link" href="../HTML/carrito.html">
+    <img src="../assets/img/carrito.png" alt="Carrito" width="55" height="50" class="d-inline-block align-text-top">
+  </a>
+</li>
+  </ul>
           </div>
         </div>
       </div>
