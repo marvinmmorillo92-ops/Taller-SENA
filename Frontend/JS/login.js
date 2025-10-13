@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formLogin");
-  const API_URL = "http://localhost:4000/api/login";
+
+  // Si ya hay un usuario guardado, saltar el login
+  const usuarioGuardado = localStorage.getItem("usuario");
+  if (usuarioGuardado) {
+    window.location.href = "./perfil.html";
+    return;
+  }
+  const form = document.getElementById("formLogin"); // Referencia el formulario
+  const API_URL = "http://localhost:4000/api/login"; // URL del endpoint de login
+
+  // Función para mostrar alertas
+
 
   function showAlert(message, type = "danger") {
     const existing = document.getElementById("loginAlert");
