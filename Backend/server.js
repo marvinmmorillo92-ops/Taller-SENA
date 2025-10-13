@@ -261,7 +261,7 @@ app.get("/api/detalle_carrito", (req, res) => {
      INNER JOIN carrito c ON d.id_carrito = c.id_carrito
      INNER JOIN usuarios u ON c.id_usuario = u.id_usuario
      INNER JOIN productos p ON d.id_producto = p.id_producto`,
-     [id_usuario],
+     
     (err, resultados) => {
       if (err) {
         console.error("Error en SELECT detalle_carito:", err);
