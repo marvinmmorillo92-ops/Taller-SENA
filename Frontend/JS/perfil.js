@@ -16,8 +16,12 @@ document.getElementById("direccionUsuario").textContent = usuario.direccion || "
 // Mostrar carrito de compras
 const API_BASE= "http://localhost:4000/api";
 
-
-
+// Funcion para llenar tabla carrito
+function llenarTabla(carrito) {
+    const tbody = document.getElementById("tablaId");
+    tbody.innerHTML = ""; // Limpiar tabla antes de llenarla
+    
+}
 
 // Manejar cierre de sesión
 document.getElementById("btnLogout").addEventListener("click", () => {
