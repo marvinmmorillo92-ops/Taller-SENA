@@ -17,23 +17,25 @@ document.getElementById("direccionUsuario").textContent = usuario.direccion || "
 const API_BASE= "http://localhost:4000/api";
 
 // Funcion para llenar tabla carrito
-function llenarTabla(carrito) {
-    const tbody = document.getElementById("tablaId");
-    tbody.innerHTML = ""; // Limpiar tabla antes de llenarla
- if (!carrito || datos.length === 0) {
-    tbody.innerHTML = `<tr><td colspan= "${columnas}" class="text-center">No hay registros</td></tr>`;
+function llenarTabla(idTabla, datos, columnas) {
+  const tbody = document.getElementById(idTabla);
+  tbody.innerHTML = ""; // Limpiar tabla
+
+  if (!datos || datos.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="${columnas}" class="text-center">No hay registros</td></tr>`;
     return;
- }
- 
- datos.forEach((fila) => {
+  }
+
+  datos.forEach((fila) => {
     const tr = document.createElement("tr");
-    tr.innerHTML = columnas === 2
-    ? `<td>${fila.producto}</td><td>${fila.cantidad}</td>`
-    : `<td>${fila.producto}</td><td>${fila.cantidad}</td><td>${fila.fecha || "Sin fecha"}</td>`;
+    tr.innerHTML =
+      columnas === 2
+        ? `<td>${fila.producto}</td><td>${fila.cantidad}</td>`
+        : `<td>${fila.producto}</td><td>${fila.cantidad}</td><td>${fila.fecha || "Sin fecha"}</td>`;
     tbody.appendChild(tr);
- });
- 
+  });
 }
+
 
 // Cargar carrito pendiente
 async function cargarCarritoPendiente(idUsuario) {
