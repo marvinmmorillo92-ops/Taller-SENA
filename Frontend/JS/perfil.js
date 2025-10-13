@@ -12,10 +12,18 @@ document.getElementById("correoUsuario").textContent = usuario.correo || "N/A";
 document.getElementById("ciudadUsuario").textContent = usuario.ciudad || "N/A";
 document.getElementById("direccionUsuario").textContent = usuario.direccion || "N/A";
 
+
+// Mostrar carrito de compras
+const carrito = JSON.parse(localStorage.getItem("carrito"));
+const carritoContainer = document.getElementById("carritoContainer");
+
+
+
+
 // Manejar cierre de sesión
-document.getElementById("btnCerrarSesion").addEventListener("click", () => {
+document.getElementById("btnLogout").addEventListener("click", () => {
     localStorage.removeItem("usuario");
-    window.location.href = "./index.html";
+    window.location.href = "./login.html";
 
 });
 });
