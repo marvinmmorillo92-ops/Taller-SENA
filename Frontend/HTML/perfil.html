@@ -89,9 +89,46 @@
     <p><strong>Ciudad:</strong> <span id="ciudadUsuario"></span></p>
     <p><strong>Dirección:</strong> <span id="direccionUsuario"></span></p>
 
+    <!-- Botón para cerrar sesión -->  
     <button id="btnLogout" class="btn btn-danger mt-3">Cerrar sesión</button>
   </div>
 
+<!-- Botón para editar perfil -->
+    <div class="mt-4">
+  <button id="btnEditar" class="btn btn-danger">Editar perfil</button>
+</div>
+
+<form id="formEditarPerfil" class="mt-4" style="display:none;">
+  <div class="mb-3">
+    <label for="nombreEditar" class="form-label">Nombre</label>
+    <input type="text" id="nombreEditar" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="correoEditar" class="form-label">Correo</label>
+    <input type="email" id="correoEditar" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="contrasenaEditar" class="form-label">Contraseña</label>
+    <input type="password" id="contrasenaEditar" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="ciudadEditar" class="form-label">Ciudad</label>
+    <input type="text" id="ciudadEditar" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="direccionEditar" class="form-label">Dirección</label>
+    <input type="text" id="direccionEditar" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Guardar cambios</button>
+  <button type="button" id="btnCancelar" class="btn btn-secondary ms-2">Cancelar</button>
+</form>
+
+<!-- Tabla de carrito pendiente e historial de compras -->
 <hr class="my-4">
 <h3 class="text-center mb-3"> Carrito pendiente</h3>
 <div id="CarritoPendiente" class="table-responsive"> 

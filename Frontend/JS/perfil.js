@@ -91,4 +91,65 @@ document.getElementById("btnLogout").addEventListener("click", () => {
     window.location.href = "./login.html";
 
 });
+
+
+//manejar edicion de perfil
+
+
+// Mostrar formulario con datos actuales
+document.getElementById("btnEditar").addEventListener("click", () => {
+  document.getElementById("formEditarPerfil").style.display = "block";
+  document.getElementById("btnEditar").style.display = "none";
+
+  // Llenar campos con la info actual del usuario
+  document.getElementById("nombreEditar").value = usuario.nombres;
+  document.getElementById("correoEditar").value = usuario.correo;
+  document.getElementById("ciudadEditar").value = usuario.ciudad;
+  document.getElementById("direccionEditar").value = usuario.direccion;
+});
+
+// Cancelar edición
+document.getElementById("btnCancelar").addEventListener("click", () => {
+  document.getElementById("formEditarPerfil").style.display = "none";
+  document.getElementById("btnEditar").style.display = "block";
+});
+
+// Guardar cambios
+document.getElementById("formEditarPerfil").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const datosActualizados = {
+    nombres: document.getElementById("nombreEditar").value,
+    correo: document.getElementById("correoEditar").value,
+    contrasena: document.getElementById("contrasenaEditar").value || "",
+    ciudad: document.getElementById("ciudadEditar").value,
+    direccion: document.getElementById("direccionEditar").value
+  };
+
+  try {
+    const resp = await fetch(`${API_BASE}/usuarios/documento/${usuario.documento}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datosActualizados)
+    });
+
+    if (!resp.ok) throw new Error("Error al actualizar los datos");
+
+    alert("Perfil actualizado correctamente");
+
+    // Actualizar datos guardados en localStorage
+    const actualizado = { ...usuario, ...datosActualizados };
+delete actualizado.contrasena; // nunca guardar contraseña
+localStorage.setItem("usuario", JSON.stringify(actualizado));
+
+
+    // Refrescar la página o actualizar campos mostrados
+    location.reload();
+
+  } catch (error) {
+    console.error(error);
+    alert("Ocurrió un error al actualizar tu perfil intenta de nuevo");
+  }
+});
+
 });

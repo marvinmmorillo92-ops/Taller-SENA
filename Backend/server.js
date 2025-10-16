@@ -65,12 +65,18 @@ app.put("/api/usuarios/documento/:documento", (req, res) => {
   if (!nombres && !correo && !contrasena && !ciudad && !direccion) {
     return res.status(400).json({ error: "Debe enviar al menos un campo para actualizar" });
   }
+  db.query("SELECT contrasena FROM usuarios WHERE documento = ?", [documento], (err, result) => {
+    if (err) return res.status(500).json({ error: "Error al consultar usuario" });
+    if (result.length === 0) return res.status(404).json({ error: "Usuario no encontrado" });
+
+  const contrasenaFinal = contrasena && contrasena.trim() !== "" ? contrasena : result[0].contrasena;
 
   db.query("UPDATE usuarios SET nombres = ?, correo = ?, contrasena = ?, ciudad = ?, direccion = ? WHERE documento = ?",
     [nombres, correo, contrasena, ciudad, direccion, documento], (err, resultado) => {
       if (err) {
         console.error("Error en el UPDATE:", err);
         return res.status(500).json({ error: "Error al actualizar el usuario" });
+    
       }
 
       if (resultado.affectedRows === 0) {
@@ -80,6 +86,7 @@ app.put("/api/usuarios/documento/:documento", (req, res) => {
       res.json({ message: "Usuario actualizado correctamente" });
     }
   );
+});
 });
 
 // ================= tabla productos ================== //
