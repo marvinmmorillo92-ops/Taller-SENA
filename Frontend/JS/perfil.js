@@ -93,6 +93,31 @@ document.getElementById("btnLogout").addEventListener("click", () => {
 });
 
 
+// Eliminar perfil
+document.getElementById("btnEliminarPerfil").addEventListener("click", async () => {
+  const confirmar = confirm(
+    "¿Seguro que deseas eliminar su cuenta? Esta acción no se puede deshacer."
+  );
+
+  if (!confirmar) return;
+
+  try {
+    const resp = await fetch(`${API_BASE}/usuarios/documento/${usuario.documento}`, {
+      method: "DELETE",
+    });
+
+    if (!resp.ok) throw new Error("Error al eliminar el usuario");
+
+    alert("Tu cuenta ha sido eliminada correctamente.");
+    localStorage.removeItem("usuario");
+    window.location.href = "./login.html";
+  } catch (error) {
+    console.error("Error al eliminar perfil:", error);
+    alert("No se pudo eliminar tu cuenta. Intenta más tarde.");
+  }
+});
+
+
 //manejar edicion de perfil
 
 
