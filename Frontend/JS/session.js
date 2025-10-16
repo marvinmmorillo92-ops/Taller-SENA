@@ -2,49 +2,59 @@
 document.addEventListener("DOMContentLoaded", () => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   const nombreSesion = document.getElementById("nombreSesion");
-const cerrarSesionHeader = document.getElementById("cerrarSesionHeader");
+  const cerrarSesionHeader = document.getElementById("cerrarSesionHeader");
 
+  // Obtener nombre del archivo actual (ej: index.html, perfil.html)
+  const paginaActual = window.location.pathname.split("/").pop().toLowerCase();
+
+  // Evitar que el script actúe en login.html (para no causar redirecciones infinitas)
+  if (paginaActual === "login.html") return;
+
+  // ============================================================
+  // Mostrar nombre del usuario o texto "Iniciar sesión"
+  // ============================================================
   if (usuario && nombreSesion) {
-    // Mostrar saludo o nombre corto
-     const primerNombre = usuario.nombres.split(" ")[0];
+    const primerNombre = usuario.nombres.split(" ")[0];
     nombreSesion.textContent = `Hola, ${primerNombre.toUpperCase()}`;
+    nombreSesion.style.cursor = "default";
   } else if (nombreSesion) {
-
     nombreSesion.textContent = "Iniciar sesión";
+    nombreSesion.style.cursor = "pointer";
 
-  }
-// Cerrar sesión desd e el header
-if (cerrarSesionHeader){
-
-    cerrarSesionHeader.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.removeItem("usuario");
-
-        //Detecta ruta actual
-
-        let loginPath = "./HTML/login.html";
-if (window.location.pathname.includes("/HTML/")) {
-loginPath = "../HTML/login.html";
-
-}
-
-Window.location.herf = loginPath;
-
+    // Si no hay usuario, permitir clic para ir al login
+    nombreSesion.addEventListener("click", () => {
+      const loginPath = window.location.pathname.includes("/HTML/")
+        ? "./login.html"
+        : "./HTML/login.html";
+      window.location.href = loginPath;
     });
-}
+  }
 
-// Forzar login si no hay usuario en localStorage
-const paginasProtegidas = ["/HTML/perfil.html", "/HTML/carrito.html"];
-const paginaActual = window.location.pathname.split("/").pop();
+  // ============================================================
+  // Cerrar sesión desde el header
+  // ============================================================
+  if (cerrarSesionHeader) {
+    cerrarSesionHeader.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("usuario");
 
-if (!usuario && paginasProtegidas.includes(paginaActual)) {
-    alert("Debes iniciar sesion, Redirigiendo al login...");
-    const loginPath = window.location.pathname.includes("/HTML/") ? "./login.html" : "./HTML/login.html";
-    
-    loginPath = "../login.html";
-    window.location.href = loginPath;    
-}
+      const loginPath = window.location.pathname.includes("/HTML/")
+        ? "./login.html"
+        : "./HTML/login.html";
 
+      window.location.href = loginPath;
+    });
+  }
 
-
+  // ============================================================
+  // Bloquear acceso a páginas protegidas
+  // ============================================================
+  const paginasProtegidas = ["perfil.html", "carrito.html"];
+  if (!usuario && paginasProtegidas.includes(paginaActual)) {
+    alert("Debes iniciar sesión para acceder a esta página.");
+    const loginPath = window.location.pathname.includes("/HTML/")
+      ? "./login.html"
+      : "./HTML/login.html";
+    window.location.href = loginPath;
+  }
 });
