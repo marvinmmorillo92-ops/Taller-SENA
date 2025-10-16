@@ -3,12 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   const nombreSesion = document.getElementById("nombreSesion");
   const cerrarSesionHeader = document.getElementById("cerrarSesionHeader");
+  const verPerfilHeader = document.getElementById("verPerfilHeader");
 
-  // Obtener nombre del archivo actual (ej: index.html, perfil.html)
+  // ============================================================
+  // Detectar ruta actual y si estamos dentro de /HTML/
+  // ============================================================
   const paginaActual = window.location.pathname.split("/").pop().toLowerCase();
+  const enCarpetaHTML = window.location.pathname.includes("/HTML/");
 
-  // Evitar que el script actúe en login.html (para no causar redirecciones infinitas)
-  if (paginaActual === "login.html") return;
+  // ============================================================
+  // Evitar que el script actúe en páginas públicas
+  // ============================================================
+  // No debe actuar ni redirigir en estas páginas:
+  const paginasPublicas = ["login.html", "index.html", ""];
+  if (paginasPublicas.includes(paginaActual)) return;
 
   // ============================================================
   // Mostrar nombre del usuario o texto "Iniciar sesión"
@@ -23,10 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Si no hay usuario, permitir clic para ir al login
     nombreSesion.addEventListener("click", () => {
-      const loginPath = window.location.pathname.includes("/HTML/")
-        ? "./login.html"
-        : "./HTML/login.html";
+      const loginPath = enCarpetaHTML ? "./login.html" : "./HTML/login.html";
       window.location.href = loginPath;
+    });
+  }
+
+  // ============================================================
+  // Ver perfil desde el header
+  // ============================================================
+  if (verPerfilHeader) {
+    verPerfilHeader.addEventListener("click", (e) => {
+      e.preventDefault();
+      const perfilPath = enCarpetaHTML ? "./perfil.html" : "./HTML/perfil.html";
+      window.location.href = perfilPath;
     });
   }
 
@@ -37,11 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cerrarSesionHeader.addEventListener("click", (e) => {
       e.preventDefault();
       localStorage.removeItem("usuario");
-
-      const loginPath = window.location.pathname.includes("/HTML/")
-        ? "./login.html"
-        : "./HTML/login.html";
-
+      const loginPath = enCarpetaHTML ? "./login.html" : "./HTML/login.html";
       window.location.href = loginPath;
     });
   }
@@ -50,11 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bloquear acceso a páginas protegidas
   // ============================================================
   const paginasProtegidas = ["perfil.html", "carrito.html"];
+
   if (!usuario && paginasProtegidas.includes(paginaActual)) {
     alert("Debes iniciar sesión para acceder a esta página.");
-    const loginPath = window.location.pathname.includes("/HTML/")
-      ? "./login.html"
-      : "./HTML/login.html";
+    const loginPath = enCarpetaHTML ? "./login.html" : "./HTML/login.html";
     window.location.href = loginPath;
   }
 });
