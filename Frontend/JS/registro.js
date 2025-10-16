@@ -69,8 +69,11 @@ try {
         showAlert("Registro exitoso. Bienvenido/a " + (json.nombres || "") + "!", "success");
         form.reset();
 
-        //Redirigir al perfil del usuario
-       window.location.href = "./perfil.html";
+        //Redirigir al login después de un breve retraso
+        setTimeout(() => {
+            window.location.href = "./login.html";
+        }, 4000);
+       
 
       }
 }
