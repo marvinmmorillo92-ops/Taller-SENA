@@ -33,24 +33,40 @@ function formatearFecha(fecha) {
 // Funcion para llenar tabla carrito
 function llenarTabla(idTabla, datos, columnas) {
   const tbody = document.getElementById(idTabla);
-  tbody.innerHTML = ""; // Limpiar tabla
+  tbody.innerHTML = "";
 
   if (!datos || datos.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="${columnas}" class="text-center">No hay registros</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${columnas + 1}" class="text-center">No hay registros</td></tr>`;
     return;
   }
 
   datos.forEach((fila) => {
     const tr = document.createElement("tr");
-    tr.innerHTML =
-  columnas === 2
-    ? `<td>${fila.producto}</td><td>${fila.cantidad}</td>`
-    : `<td>${fila.producto}</td><td>${fila.cantidad}</td><td>${formatearFecha(fila.fecha)}</td>`;
-
+    tr.innerHTML = `
+      <td>${fila.producto}</td>
+      <td>${fila.cantidad}</td>
+      <td class="text-center">
+        <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
+          ❌
+        </button>
+      </td>
+    `;
     tbody.appendChild(tr);
+  });
+
+  // Agregar los eventos a los botones después de crear la tabla
+  document.querySelectorAll(".eliminar-producto").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      const idDetalle = e.target.getAttribute("data-id");
+      eliminarProductoCarrito(idDetalle, e.target.closest("tr"));
+    });
   });
 }
 
+
+
+
+///////////////////////////////////////
 
 // Cargar carrito pendiente
 async function cargarCarritoPendiente(idUsuario) {
@@ -79,6 +95,27 @@ async function cargarHistorial(idUsuario) {
     console.error("Error al cargar historial:", err);
   }
 }
+
+// ////////////// Eliminar producto del carito /////////
+
+async function eliminarProductoCarrito(idDetalle, filaElemento) {
+  if (!confirm("¿Seguro que quieres eliminar este producto del carrito?")) return;
+
+  try {
+    const resp = await fetch(`${API_BASE}/detalle_carrito/${idDetalle}`, { method: "DELETE" });
+    if (!resp.ok) throw new Error("Error al eliminar el producto");
+
+    // Animación y eliminación visual
+    filaElemento.style.transition = "opacity 0.4s ease";
+    filaElemento.style.opacity = "0";
+    setTimeout(() => filaElemento.remove(), 400);
+
+  } catch (error) {
+    console.error("Error al eliminar producto:", error);
+    alert("Ocurrió un error al eliminar el producto. Intenta de nuevo.");
+  }
+}
+
 
 //llamada a las funciones
 cargarCarritoPendiente(usuario.id_usuario);
