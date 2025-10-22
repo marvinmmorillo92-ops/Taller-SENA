@@ -47,7 +47,7 @@ function llenarTabla(idTabla, datos, columnas) {
       <td>${fila.cantidad}</td>
       <td class="text-center">
         <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
-          ❌
+          X
         </button>
       </td>
     `;
@@ -82,7 +82,7 @@ async function cargarCarritoPendiente(idUsuario) {
   }
 }
 
-// Cargar historial de compras (si tuvieras una tabla de compras)
+// Cargar historial de compras 
 async function cargarHistorial(idUsuario) {
   try {
     const resp = await fetch(`${API_BASE}/detalle_carrito`);
