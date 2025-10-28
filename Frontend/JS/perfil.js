@@ -46,7 +46,7 @@ function llenarTabla(idTabla, datos, columnas) {
       <td>${fila.producto}</td>
       <td>${formatearFecha(fila.fecha)}</td>
       <td>${fila.cantidad}</td>
-      <td>${fila.precio}</td>
+      <td>$${fila.precio ? fila.precio.toLocaleString("es-CO") : "0"}</td>
       <td class="text-center">
         <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
           X
@@ -56,7 +56,7 @@ function llenarTabla(idTabla, datos, columnas) {
     tbody.appendChild(tr);
   });
 
-  // Agregar los eventos a los botones después de crear la tabla
+  // Eliminar producto del carrito
   document.querySelectorAll(".eliminar-producto").forEach((btn) => {
     btn.addEventListener("click", async (e) => {
       const idDetalle = e.target.getAttribute("data-id");

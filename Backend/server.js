@@ -263,7 +263,7 @@ app.post("/api/detalle_carrito", (req, res) => {
 // Listar productos de los carritos
 app.get("/api/detalle_carrito", (req, res) => {
   db.query(
-    `SELECT d.id_detalle, c.id_carrito, u.nombres AS usuario, p.nombre AS producto, d.cantidad, c.fecha
+    `SELECT d.id_detalle, c.id_carrito, u.nombres AS usuario, p.nombre AS producto, p.precio AS precio, d.cantidad, c.fecha
      FROM detalle_carrito d
      INNER JOIN carrito c ON d.id_carrito = c.id_carrito
      INNER JOIN usuarios u ON c.id_usuario = u.id_usuario
