@@ -48,7 +48,7 @@ function llenarTabla(idTabla, datos, columnas) {
       <td>${fila.producto}</td>
       <td class="text-center">${formatearFecha(fila.fecha)}</td>
       <td class="text-center">${fila.cantidad}</td>
-      <td class="text-center, text-end fw-semibold">$${Number(fila.total).toLocaleString("es-CO")}</td>
+      <td class="text-center text-end fw-semibold">$${Number(fila.total).toLocaleString("es-CO")}</td>
 
       <td class="text-center">
         <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
