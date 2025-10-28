@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const json = await resp.json();
 
       if (!resp.ok) {
-        return showAlert(json.error || "Error al iniciar sesión", "warning");
+        return showAlert(json.error || "Error al iniciar sesión");
       }
 
       //  Guardar usuario en localStorage

@@ -63,10 +63,9 @@ try {
     const json = await resp.json();
 
     if (!resp.ok) {
-        const msg = json.error || json.message || "Error en el registro";
         showAlert(msg, "danger");
       } else {
-        showAlert("Registro exitoso. Bienvenido/a " + (json.nombres || "") + "!", "success");
+        showAlert("Registro exitoso. Bienvenido/a " + (json.nombres || "") + " !", "success");
         form.reset();
 
         //Redirigir al login después de un breve retraso
@@ -79,7 +78,7 @@ try {
 }
 catch (error) {
     console.error("Error en la solicitud:", error);
-    showAlert("Error en la solicitud. Por favor, intente nuevamente más tarde.", "danger");
+    showAlert("Error en la solicitud. Por favor, intente nuevamente.", "danger");
 }
 finally {
     if (submitBtn) {
