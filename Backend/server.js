@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const cors = require("cors");
 const db = require("./db.js");
@@ -506,8 +508,5 @@ if (resultados.length === 0) {
 
 });
 
-
-// Iniciar servidor
-app.listen(4000, () => {
-  console.log("El servidor está corriendo en http://localhost:4000");
-});
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));

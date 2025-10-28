@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const paginasProtegidas = ["perfil.html", "carrito.html"];
 
   if (!usuario && paginasProtegidas.includes(paginaActual)) {
-    alert("Debes iniciar sesión para acceder a esta página.");
+    alert("Debes iniciar sesión primero");
     const loginPath = enCarpetaHTML ? "./login.html" : "./HTML/login.html";
     window.location.href = loginPath;
   }
