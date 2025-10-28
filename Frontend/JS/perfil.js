@@ -42,11 +42,14 @@ function llenarTabla(idTabla, datos, columnas) {
 
   datos.forEach((fila) => {
     const tr = document.createElement("tr");
+    const precioTotal = fila.precio && fila.cantidad ? fila.precio * fila.cantidad : 0;
+
     tr.innerHTML = `
       <td>${fila.producto}</td>
-      <td>${formatearFecha(fila.fecha)}</td>
-      <td>${fila.cantidad}</td>
-      <td>$${fila.precio ? fila.precio.toLocaleString("es-CO") : "0"}</td>
+      <td class="text-center">${formatearFecha(fila.fecha)}</td>
+      <td class="text-center">${fila.cantidad}</td>
+      <td class="text-center, text-end fw-semibold">$${Number(fila.total).toLocaleString("es-CO")}</td>
+
       <td class="text-center">
         <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
           X

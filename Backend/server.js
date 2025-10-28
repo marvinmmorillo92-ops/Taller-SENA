@@ -261,23 +261,34 @@ app.post("/api/detalle_carrito", (req, res) => {
 });
 
 // Listar productos de los carritos
+
 app.get("/api/detalle_carrito", (req, res) => {
   db.query(
-    `SELECT d.id_detalle, c.id_carrito, u.nombres AS usuario, p.nombre AS producto, p.precio AS precio, d.cantidad, c.fecha
+    `SELECT 
+       d.id_detalle, 
+       c.id_carrito, 
+       u.nombres AS usuario, 
+       p.nombre AS producto, 
+       d.cantidad, 
+       p.precio, 
+       (p.precio * d.cantidad) AS total, 
+       c.fecha
      FROM detalle_carrito d
      INNER JOIN carrito c ON d.id_carrito = c.id_carrito
      INNER JOIN usuarios u ON c.id_usuario = u.id_usuario
      INNER JOIN productos p ON d.id_producto = p.id_producto`,
-     
     (err, resultados) => {
       if (err) {
-        console.error("Error en SELECT detalle_carito:", err);
+        console.error("Error en SELECT detalle_carrito:", err);
         return res.status(500).json({ error: "Error al obtener los detalles del carrito" });
       }
       res.json(resultados);
     }
   );
 });
+
+
+
 
 // Actualizar la cantidad de un producto en el carrito
 app.put("/api/detalle_carrito/:id", (req, res) => {
