@@ -44,7 +44,9 @@ function llenarTabla(idTabla, datos, columnas) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${fila.producto}</td>
+      <td>${formatearFecha(fila.fecha)}</td>
       <td>${fila.cantidad}</td>
+      <td>${fila.precio}</td>
       <td class="text-center">
         <button class="btn btn-outline-danger btn-sm eliminar-producto" data-id="${fila.id_detalle}">
           X

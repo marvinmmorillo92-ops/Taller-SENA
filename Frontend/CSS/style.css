@@ -63,14 +63,14 @@
 
 /* Fondo general */
 body {
-  background-color: #F4C2C2; /* Palo de rosa claro */
+  background-color: #e4c0c0; /* Palo de rosa claro */
   color: #333333; /* Texto oscuro para contraste */
   font-family: Arial, Helvetica, sans-serif;
 }
 
 /* NAVBAR */
 .navbar {
-  background-color: #d28a8a !important; /* Rosado más oscuro */
+  background-color: #722323 !important; /* Rosado más oscuro */
 }
 
 .navbar .nav-link,
@@ -79,7 +79,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: #ffeaea !important; /* Un rosado más claro al pasar el mouse */
+  color: #1d1616 !important; /* Un rosado más claro al pasar el mouse */
 }
 
 .btn-outline-success {
