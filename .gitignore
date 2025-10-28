@@ -3,6 +3,5 @@ test.rest
 node_modules/
 package-lock.json
 package.json
-db.js
 .env
 
