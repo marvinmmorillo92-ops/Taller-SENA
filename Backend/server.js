@@ -113,13 +113,25 @@ app.post("/api/productos", (req, res) => {
   );
 });
 
-// enlistar productos
+
+// Enlistar productos (con filtro opcional por nombre)
 app.get("/api/productos", (req, res) => {
-  db.query("SELECT * FROM productos", (err, resultados) => {
+  const filtro = req.query.filtro; // por ejemplo ?filtro=galleta
+  let sql = "SELECT * FROM productos";
+  const params = [];
+
+  // Si viene un filtro, añadimos la condición
+  if (filtro) {
+    sql += " WHERE nombre LIKE ?";
+    params.push(`%${filtro}%`);
+  }
+
+  db.query(sql, params, (err, resultados) => {
     if (err) {
       console.error("Error en el SELECT productos:", err);
       return res.status(500).json({ error: "Error en la base de datos" });
     }
+
     res.json(resultados);
   });
 });
