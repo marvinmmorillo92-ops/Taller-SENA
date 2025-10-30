@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galletas - Dulzuras de Angelly</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../CSS/style.css">
+   </head>
+
+<body>
+    
+<header>  
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid"> 
+    <a class="navbar-brand" href="../index.html">
+        <img src="../assets/img/logo.png" alt="Logo" width="70" height="60" class="d-inline-block align-text-top"></a>
+    <button class="navbar-toggler" 
+    type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../index.html">INICIO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../HTML/productos.html">PRODUCTOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../HTML/contacto.html">CONTACTO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="../HTML/nosotros.html">NOSOTROS</a>
+        </li>
+      </ul>
+    <div class="d-flex flex-column flex-lg-row ms-auto align-items-center">
+      <form class="d-flex w-100 w-lg-auto me-lg-3 mb-3 mb-lg-0" role="search">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">
+      <img src="../assets/img/lupa.png" alt="Buscar" width="25" height="25">
+    </button>
+  </form>
+    <!-- logo perfil desplegable -->
+      <ul class="navbar-nav d-flex flex-row">
+           <li class="nav-item dropdown d-flex align-items-center ms-3">
+
+  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="menuUsuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    
+    <img src="../assets/img/perfil.png" alt="Perfil" width="45" height="40" class="d-inline-block align-text-top me-2">
+    <span id="nombreSesion" class="fw-semibold text-white small">Hola</span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="menuUsuario">
+  <li><a class="dropdown-item text-danger" href="#" id="verPerfilHeader">Ver perfil</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item text-danger" href="#" id="cerrarSesionHeader">Cerrar sesión</a></li>
+ 
+  </ul>
+</li>
+
+<!-- Carrito -->
+<li class="nav-item">
+  <a class="nav-link" href="../HTML/carrito.html">
+    <img src="../assets/img/carrito.png" alt="Carrito" width="55" height="50" class="d-inline-block align-text-top">
+  </a>
+</li>
+  </ul>
+    </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="container my-4">
+    <h2 class="text-center mb-4">Nuestras Gelatinas</h2>
+    <div class="row" id="contenedorProductos">
+      <!-- Aquí se cargarán las gelatinas dinámicamente -->
+    </div>
+      <section>
+<div class="text-center">
+  <button class="btn btn-filtrar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Filtrar</button>
+</div>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Selecciona uno:</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <section>
+  <div class="offcanvas-body">
+   <a href="../HTML/galletas.html" class="btn btn-ingresar">Galletas</a>
+   <a href="../HTML/pasteles.html" class="btn btn-ingresar">Pasteles</a>
+   <a href="../HTML/flanes.html" class="btn btn-ingresar">Flanes</a>
+   <a href="../HTML/pays.html" class="btn btn-ingresar">Pays</a>
+   <a href="../HTML/tartas.html" class="btn btn-ingresar">Tartas</a>
+   <a href="../HTML/panes.html" class="btn btn-ingresar">Panes</a>
+   <a href="../HTML/cupcakes.html" class="btn btn-ingresar">Cupcakes</a>
+   <a href="../HTML/gelatinas.html" class="btn btn-ingresar">Gelatinas</a>
+
+</div>
+</section>
+</section>
+</main>
+
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Dulsuras de Angelly - Todos los derechos reservados</p>
+    <p>Teléfono / WhatsApp: <a href="tel:+573114562810">+57 3114562810</a></p>
+        <p>Dirección: Carrera 15 #123-45, La felicidad, Bogotá D.C.</p>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+    crossorigin="anonymous"></script>
+
+    <script src="../JS/session.js"></script>
+    <script src="../JS/gelatinas.js"></script>
+
+</body>
+</html>
