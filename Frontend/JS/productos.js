@@ -85,7 +85,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     //Agregar funcionalidad de “Agregar al carrito”
     inicializarCarrito();
 
-  } catch (error) {
+  } 
+  catch (error) {
     console.error("Error al cargar productos:", error);
   }
 
