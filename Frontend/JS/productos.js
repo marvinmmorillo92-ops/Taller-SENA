@@ -93,7 +93,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Intenta adivinar el nombre del archivo de imagen a partir del nombre del producto
   function obtenerNombreImagen(nombre) {
     const base = nombre.toLowerCase().replace(/\s+/g, "");
+    //return `${base}.webp`;
     return `${base}.png`;
+   
   }
 
   //  Funcion para manejar el carrito
