@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function obtenerNombreImagen(nombre) {
     const base = nombre.toLowerCase().replace(/\s+/g, "");
-    return `${base}.png`;
+    return `${base}.webp`;
   }
     // funcion para agregar al carrito
     contenedor.addEventListener("click", (e) => {
